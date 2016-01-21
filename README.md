@@ -15,3 +15,5 @@ https://www.unidata.ucar.edu/downloads/netcdf/netcdf-cxx/index.jsp
 to run it, type "./CommandShell -i examplescript" from the commandline
 
 The "swig" repository contains python bindings requires numpy (and numpy.i), swig, and matplotlib for testing. 
+
+This branch repository also contains the routines to include the random effects (turbulence and firespotting) as a post-processing of the output. See ReadMe_random_effects.pdf for more details.
