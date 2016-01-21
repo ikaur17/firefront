@@ -1,0 +1,136 @@
+#!/bin/bash
+
+function clean {
+	if [ -f $file ]; then
+		if [ $i -eq "0" ]; then
+			echo -n "...deleting "$type": "
+			i=1
+		fi
+		echo -n $file" "
+		rm $file
+	fi
+}
+
+function clean_LSout {
+	#echo "attempt to delete OUTPUT files"
+	type="'LSout*'"
+	for file in LSout*; do
+		clean		
+	done
+	if [ $i -eq "0" ]; then
+		echo "...deleting 'LSout*': (None)"
+	else
+		echo ""
+	fi
+}
+
+function clean_txt {
+	#echo "attempt to delete TXT files"
+	type='txt'
+	for file in *.txt; do
+		clean		
+	done
+	if [ $i -eq "0" ]; then
+		echo "...deleting txt: (None)"
+	else
+		echo ""
+	fi
+}
+
+function clean_dat {
+	#echo "attempt to delete DAT files"
+	type='dat'
+	for file in *.dat; do
+		clean		
+	done
+	if [ $i -eq "0" ]; then
+		echo "...deleting dat: (None)"
+	else
+		echo ""
+	fi
+}
+
+function clean_obj {
+	#echo "attempt to delete OBJ files"
+	type='obj'
+	for file in build/*.o; do
+		clean
+	done
+	for file in build/*.mod; do
+		clean
+	done
+	if [ $i -eq "0" ]; then
+		echo "...deleting obj: (None)"
+	else
+		echo ""
+	fi
+}
+
+function clean_png {
+	#echo "attempt to delete PNG files"
+	type='png'
+	for file in *.png; do
+		clean
+	done
+	if [ $i -eq "0" ]; then
+		echo "...deleting png: (None)"
+	else
+		echo ""
+	fi
+}
+
+function clean_mpg {
+	#echo "attempt to delete MPG files"
+	type='mpg'
+	for file in *.mpg; do
+		clean
+	done
+	if [ $i -eq "0" ]; then
+		echo "...deleting mpg: (None)"
+	else
+		echo ""
+	fi
+}
+
+function clean_exe {
+	#echo "attempt to delete EXE files"
+	type='exe'
+	for file in *.exe; do
+		clean
+	done
+	if [ $i -eq "0" ]; then
+		echo "...deleting exe: (None)"
+	else
+		echo ""
+	fi
+}
+
+i=0
+if [ "$1" == "all" ]; then
+	clean_obj
+	clean_exe
+	clean_output
+elif [ "$1" == "LSout" ]; then
+	clean_LSout
+elif [ "$1" == "txt" ]; then
+	clean_txt
+elif [ "$1" == "dat" ]; then
+	clean_dat
+elif [ "$1" == "obj" ]; then
+	clean_obj
+elif [ "$1" == "fig" ]; then
+	clean_png
+	clean_mpg
+elif [ "$1" == "exe" ]; then
+	clean_exe
+else
+	#clean_txt
+	#clean_dat
+	clean_exe
+fi
+
+#if [ $i -eq "1" ]; then
+#	echo ""
+#else
+#	echo "...deleting: (None)"
+#fi
