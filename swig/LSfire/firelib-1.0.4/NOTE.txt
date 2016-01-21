@@ -1,0 +1,11 @@
+make clean (cancella i file inutili, i.e .o)
+
+make (compila il codice)
+
+gcc -lm -o a.out fireSim.c fireLib.c (compila il codice)
+
+./fireSim filedati1.dat filedati2.dat (eseguibile)
+
+Il file .c è il main, 
+il file . h è header (cioè contiene le definizioni)
+i file .o non mi interessano
