@@ -159,7 +159,9 @@ double BalbiUnsteady::getSpeed(double* valueOf){
 	} else {
 		R = 0;
 	}
-
+// 3% rate of spread 	
+	R =  0.03*(valueOf[normalWind]);
+//----------------------------------------------
 	return R + R0;
 
 }
